@@ -1,1 +1,14 @@
-<h1> Hello World! This is a Basic Web App! </h1>
+{% extends "outside.html" %}
+{% import "bootstrap/wtf.html" as wtf%}
+
+{%block page_content %}
+<div class = "page-header">
+	<h1> Welcome to VCU Course Override System </h1>
+	<h2> Please, Submit the Following Information </h2>
+	<h3> For Furture Reference, Planning Ahead by Registering Early Will Avoid Any Issues </h3>
+</div> 
+
+{{ wtf.quick_form(form) }}
+
+{% endblock %}
+
