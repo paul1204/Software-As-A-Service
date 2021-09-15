@@ -1,0 +1,42 @@
+{% extends "bootstrap/base.html" %}
+{% block title %} Course Override - Virginia Commonwealth University {% endblock %}
+
+{% block head %}
+{{super() }}
+
+
+<!--Sets the Website Icon to the specified .ico file !-->
+<link rel="icon" href="{{ url_for('static', filename= 'vcu.ico')}}" type="image/x-icon"> 
+
+{% endblock %}
+
+{% block navbar%}
+<div class = "navbar navbar-inverse" role="navigation" >
+<div class = "container">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only"> Toggle navigation</span>
+			</button>
+
+			<a class = "navbar-brand" href="https://www.vcu.edu/" target="_blank">VCU</a>
+	</div>
+	<div class="navbar-collapse collapse">
+		<ul class ="nav navbar-nav">
+			<li><a href="http://bulletin.vcu.edu/undergraduate/engineering/computer-science/computer-science-bs/" target="_blank" >Computer Science</a></li>
+    			<li><a href="http://bulletin.vcu.edu/azcourses/math/" target="_blank">Math</a></li>
+
+		</ul>
+		</div>
+		</div>
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block content%}
+<div class="container">
+	{% block page_content %} {% endblock %}
+	</div>
+{% endblock %}
+
