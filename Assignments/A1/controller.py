@@ -12,6 +12,14 @@ app.config['SECRET_KEY'] = 'hard to guess string'
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404err.html'), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('500err.html'), 500
+
 
 class NameForm(FlaskForm):
     name = StringField('What is your name? (First, Last)', validators=[DataRequired()])
