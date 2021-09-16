@@ -10,5 +10,17 @@
 
 {{ wtf.quick_form(form) }}
 
-{% endblock %}
 
+<script>
+    let btn = document.getElementById('submit');
+    let last = document.getElementById('name');
+
+    last.addEventListener('keyup', () => {
+	if(last.value){
+		btn.style.color = "red"; 
+	}
+    });
+
+</script>
+
+{% endblock %}
