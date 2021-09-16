@@ -1,5 +1,5 @@
 {% extends "bootstrap/base.html" %}
-{% block title %} Course Override - Virginia Commonwealth University {% endblock %}
+{% block title %} Course Override {% endblock %}
 
 {% block head %}
 {{super() }}
@@ -12,35 +12,28 @@
 
 {% block navbar%}
 <div class = "navbar navbar-dark" style="background-color: #fbe3fd;" role="navigation" >
-<div class = "container">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<span class="sr-only"> Toggle navigation</span>
-			</button>
-
-			<a class = "navbar-brand" href="https://www.vcu.edu/" target="_blank">VCU</a>
+	<div class = "container">
+		<div class="navbar-header">
+		<a class = "navbar-brand" href="https://www.vcu.edu/" target="_blank">VCU</a>
+		</div>
+		
+		<div class="navbar-collapse collapse">
+			<ul class ="nav navbar-nav">
+			<li><a href="http://bulletin.vcu.edu/undergraduate/engineering/computer-science/computer-science-bs/" target="_blank" >Computer Science</a></li> 		
+			<li><a href="http://bulletin.vcu.edu/azcourses/math/" target="_blank">Math</a></li>
+			</ul>
+		</div>
 	</div>
-	<div class="navbar-collapse collapse">
-		<ul class ="nav navbar-nav">
-			<li><a href="http://bulletin.vcu.edu/undergraduate/engineering/computer-science/computer-science-bs/" target="_blank" >Computer Science</a></li>
-    			<li><a href="http://bulletin.vcu.edu/azcourses/math/" target="_blank">Math</a></li>
-		</ul>
-		</div>
-		</div>
-</div>
 </div>
 
 {% endblock %}
 
 {% block content%}
 <div class="container">
-	{% block page_content %} {% endblock %}
+ {% block page_content %} {% endblock %}
 	</div>
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
 {% endblock %}
-
-
-
