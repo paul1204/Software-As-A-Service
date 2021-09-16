@@ -36,16 +36,17 @@ def dropdown():
 
 
 class NameForm(FlaskForm):
-    name = StringField('What is your name? (First, Last)', validators=[DataRequired()])
+    firstName = StringField('Enter First Name', validators=[DataRequired()])
+    lastName = StringField('Enter Last Name', validators=[DataRequired()])
     studentID = StringField('Enter VID', [InputRequired(), Length(min=9,max=9,message='VID is 9 Digits')])
     email = StringField('Enter Email Address', validators=[DataRequired()])
     dropList = ['','Desired Section At Capacity', 'Prerequiste Not Satisfied', 'Other']
     s = SelectField('Reason', choices=dropList, default=1)
     #CMSC 425; 4 Characters for Class Type, 1 space, 3 digit number = 8 min and max
-    courseID = StringField('Enter The Course Number You Would Like To Join', [InputRequired(), Length(min=8,max=8,message='Enter a Valid ID')])      
-    sectionNum = StringField('Enter Section Number', [InputRequired(), Length(min=3,max=3,message='Enter a Valid Section Number')])
+    courseID = StringField('Enter The Course Number You Would Like To Join', [InputRequired(), Length(min=8,max=8,message='Enter a Valid ID (Length: 8)')])      
+    sectionNum = StringField('Enter Section Number', [InputRequired(), Length(min=3,max=3,message='Enter a Valid Section Number (Length: 3)')])
     #Course Reference Number
-    crn = StringField('Enter Course Reference Numbers', [InputRequired(), Length(min=5,max=5,message='Enter a Valid Course Reference Number')])
+    crn = StringField('Enter Course Reference Numbers', [InputRequired(), Length(min=5,max=5,message='Enter a Valid Course Reference Number (Length: 5)')])
     
     submit = SubmitField('Submit')
 
@@ -55,7 +56,7 @@ class NameForm(FlaskForm):
 def index():
     form = NameForm()
     if form.validate_on_submit():
-        session['name'] = form.name.data
+        session['name'] = form.studentID.data
         #return redirect(url_for('index'))
         return render_template('thanks.html', form=form, name=session.get('name'))
     return render_template('index.html', form=form, name=session.get('name'))
