@@ -5,11 +5,27 @@
 <div class = "page-header">
 	<h1> Welcome to VCU Course Override System </h1>
 	<h2> Please, Submit the Following Information </h2>
-	<h3> For Furture Reference, Planning Ahead by Registering Early Will Avoid Any Issues </h3>
+	<h3> For Future Reference, Planning Ahead by Registering Early Will Avoid Any Issues </h3>
 </div> 
+
+ 		<!--
+Ask Professor About This. Displays Duplicate Fields on App.    
+		<div class = "row">
+                    <div class ="form-group col-md-6">
+                    {{ wtf.form_field(form.firstName, class='form-control', placeholder='First Name')   }}
+                    </div>
+
+		    <div class = "form-group col-md-6">
+		    {{ wtf.form_field(form.lastName, class='form-control', placeholder='Last Name')      }}	
+                    </div>
+  
+                    </div>
+
+		--!>
 
 {{ wtf.quick_form(form) }}
 
+<img src="{{url_for('static', filename= 'crocker.jpg')}}">
 
 <script>
     let btn = document.getElementById('submit');
