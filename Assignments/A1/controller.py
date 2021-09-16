@@ -5,7 +5,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, InputRequired, Length
 
-
+    
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess string'
 
@@ -19,16 +19,15 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500err.html'), 500
-"""
 
+"""
 @app.route('/', methods=['GET'])
 def dropdown():
     options = ['A', 'B', 'C', 'D']
    return render_template('options.html', options=options)
 https://stackoverflow.com/questions/46047658/how-to-add-a-drop-down-with-valuespre-defined-in-flask-app-models
 
-"""
-"""
+
 @app.route('/')
 def dropdown():
     dropList = ['A', 'B', 'C']
