@@ -20,19 +20,6 @@ def page_not_found(e):
 def internal_server_error(e):
     return render_template('500err.html'), 500
 
-"""
-@app.route('/', methods=['GET'])
-def dropdown():
-    options = ['A', 'B', 'C', 'D']
-   return render_template('options.html', options=options)
-https://stackoverflow.com/questions/46047658/how-to-add-a-drop-down-with-valuespre-defined-in-flask-app-models
-
-
-@app.route('/')
-def dropdown():
-    dropList = ['A', 'B', 'C']
-    return render_template('index.html', dropList=dropList)
-
 
 
 class NameForm(FlaskForm):
@@ -50,7 +37,7 @@ class NameForm(FlaskForm):
     
     submit = SubmitField('Submit')
 
-"""
+
 
 @app.route('/', methods=['GET'])
 def index():
