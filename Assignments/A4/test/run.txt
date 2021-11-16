@@ -1,0 +1,2 @@
+docker build -t myapptest .
+docker run --network="host" myapptest
