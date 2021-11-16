@@ -1,0 +1,37 @@
+- hosts: localhost
+  tasks:
+    - name: Make Shuffle Image
+      docker_image:
+        name: myapp:v1.0
+        build:
+          pull: yes
+          path: ./main/.
+        state: present
+        source: build
+  
+    - name: Launch Shuffle
+      docker_container:
+        name: myapp
+        image: myapp:v1.0
+        detach: yes
+        published_ports: 5000:5000
+        container_default_behavior: no_defaults
+        restart_policy: always
+
+    - name: Make Shuffle Test
+      docker_image:
+        name: myapptest:v1.0
+        build:
+          pull: yes
+          path: ./test/.
+        state: present
+        source: build
+   
+    - name: Launch Shuffle Test
+      docker_container:
+        name: myapptest
+        image: myapptest:v1.0
+        detach: yes
+        #ports: --network="host"
+        network_mode: host
+        container_default_behavior: no_defaults
