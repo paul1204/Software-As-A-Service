@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 public class SpringServiceApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(SpringServiceApplication.class, args);
 	}
+
+	//To Run via CommandLine -
+	// java -jar file.jar --server.port=8081
+
 
 }
