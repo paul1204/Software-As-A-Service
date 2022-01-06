@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;  
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.transaction.Transactional;
+
 //Class that has to be a Spring Beam?
 @Service
 public class StudentService {
@@ -40,5 +42,26 @@ public class StudentService {
             );
         }
         studentRepo.deleteById(id);
+    }
+
+    @Transactional
+    public void updateStudent(Long id, String name, String email){
+        boolean trigger = studentRepo.existsById(id);
+
+        Student s = studentRepo.findById(id).orElseThrow(() -> new IllegalStateException("Student With ID " + id + " is not found" ));
+
+        if(s.getName() != name ){
+                s.setName(name);
+        }
+
+        if(s.getEmail() != email){
+            s.setEmail(email);
+        }
+
+        if(!trigger){
+            throw new IllegalStateException(
+                    "Student with ID " + id + "does not exists"
+            );
+        }
     }
 }
